@@ -1,0 +1,166 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatApp/Index</title>
+    <link href="~/css/Index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body style="background-color: #fff;direction: rtl;">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed;
+    width: 100%;
+    background-color: #f8f9fa !important;">
+        <a style="font-size: 28px;
+        position: absolute;
+        left: 2%;
+        top: 12px;" href="#">Chaty</a>
+        <input type="checkbox" id="active">
+        <label for="active" class="menu-btn">القائمة<i style="opacity:0" class="fas fa-bars"></i></label>
+        <div class="wrapper">
+            <ul>
+                <li><a href="/Home/Arabic">الرئيسة</a></li>
+                <li><a href="/Home/About_Us_Arabic">من نحن</a></li>
+                <li><a href="/Home/ContactUs">تواصل معنا</a></li>
+                <li><a href="/APIsDocuments/Index">APIs شرح</a></li>
+                <li><a href="/Home/Index">English</a></li>
+                <li><a href="/Home/LogIn_Arabic">الدخول</a></li>
+                <li><a href="/Home/SignUp_Arabic">التسجيل</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="Container_1">
+        <div class="ContainerImage">
+            <img src="../IMGs/WhatsApp Image 2022-02-13 at 6.21.41 PM.jpeg">
+        </div>
+        <div class="SecondChild" style="text-align: right;">
+            <p>أسهل طريقة لتبادل البيانات و الرسائل و تواصل مع عملائك</p>
+            <button onclick="window.location.href = '/Home/SignUp_Arabic'" class="btn btn-success">انضم الينا</button>
+        </div>
+    </div>
+    <div class="Container_2" style="background-color: #fff;">
+        <p style="color: rgb(22, 145, 22);">من نحن</p>
+        <div>
+            <div>
+                <p>نحن شركة تعمل على تسهيل التواصل بينك و بين عملائك </p>
+                <p>ارسل نفس الرسائل لعملاءك</p>
+                <p>ارسل رسالتك بكل مرونة و سهولة لعملائك</p>
+                <p>ارسل رسالتك لعملائك من غير تسجيل أرقامهك</p>
+            </div>
+            <form class="FormDiv" method="post" action="/Client/SendTextMessageWhatsApp" enctype="multipart/form-data">
+                <input type="text" class="form-control" placeholder="أدخل الكود الخاص بك" name="UserCode" id="UserCode">
+                <input type="text" class="form-control" placeholder="أرقام التليفونات" name="To" id="To">
+                <textarea class="form-control" id="Message" cols="30" rows="5" placeholder="الرسالة" name="Message"></textarea>
+                <input type="text" class="form-control" placeholder="لينك الصورة" name="Image" id="Image">
+                <input type="text" class="form-control" placeholder="لينك الرابط" name="Link" id="Link">
+                <button type="submit" class="btn btn-success">ارسال</button>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted" style="margin-top: 80px;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>تواصل معنا من خلال وسائل التواصل الخاصة بنا</span>
+            </div>
+            <!-- Left -->
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Chaty
+                        </h6>
+                        <p>
+                            تستطيع معنا ارسال الرسائل الخاصة بك لعملائك مع الحفاظ على القواعدالمطلوبة لذلك
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            التقنيات
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Angular</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Asp</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">API</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">JSON</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            وسائل التواصل
+                        </h6>
+                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            Chaty@gmail.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+
+    </footer>
+    <!-- Footer -->
+</body>
+</html>

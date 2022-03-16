@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Chaty.Models.Offer>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatApp/Prices</title>
+    <link href="~/css/Index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body style="background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+background: linear-gradient(to right, #25c481, #25b7c4);
+font-family: 'Roboto', sans-serif;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="    position: fixed;
+  width: 100%;
+  background-color: transparent !important;">
+        <a style="font-size: 28px;" class="navbar-brand" href="#">Chaty</a>
+        <a style="    position: absolute;
+      right: 61px;
+      font-size: 19px;
+      text-decoration: underline;" href="#">Cancel</a>
+    </nav>
+    <div class="container" style="    margin-top: 180px;">
+        <div class="row">
+            <!-- Free Tier -->
+            @foreach (var OfferItem in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">@OfferItem.OfferTitle</h5>
+                            <h6 class="card-price text-center">$@OfferItem.Money<span class="period">/@OfferItem.daysNumber days</span></h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>For @OfferItem.daysNumber Days</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>@OfferItem.MessagesNumber messages</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>High Security</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Fast Transmition</li>
+                            </ul>
+                            <div class="d-grid">
+                                <button href="#" class="btn btn-primary text-uppercase" onclick="BuyNow(@(OfferItem.Money))">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div id="PaymentId" style=" position: relative; transition: top 0.3s linear; top: -800px; background-color: gray; padding: 33px; width: 427px; margin: auto;">
+        <div id="smart-button-container">
+          <div style="text-align: center;">
+            <div id="paypal-button-container"></div>
+          </div>
+        </div>
+        <button class="btn btn-group" onclick="document.getElementById('PaymentId').style.top = '-800px'">Cancel</button>
+    </div>
+    <script src="~/js/site.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=@(ViewBag.PayPalClientId)&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+
+    let Price = 0;;
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'silver',
+          layout: 'vertical',
+          label: 'pay',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"amount":{"currency_code":"USD","value":Price}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            
+            fetch("/Client/GetOffer?Name=@ViewBag.ClientName&Offer=" + Price)
+                .then(res => {
+                    res.text().then(data =>{
+                        if(data == "Done"){
+                            alert("Done ;)");
+                        }else{
+                            alert("Failed :(");
+                        }
+                    })    
+                })
+            });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+
+
+
+    let BuyNow = (Argprice) =>{
+        Price = Argprice;
+        document.getElementById("PaymentId").style.top = "-370px";
+    }
+
+    
+  </script>
+</body>
+</html>
+
+
+  

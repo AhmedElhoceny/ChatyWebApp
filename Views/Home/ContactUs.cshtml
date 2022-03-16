@@ -1,0 +1,120 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/IMGs/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--===============================================================================================-->
+    <link href="~/fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/animsition/css/animsition.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/css-hamburgers/hamburgers.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/animsition/css/animsition.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/select2/select2.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/css/util.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+</head>
+<body>
+    <div class="container-contact100">
+        <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="~/IMGs/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+        <div class="wrap-contact100">
+            <div class="contact100-form-title" style="background-image: url(~/IMGs/bg-01.jpg);">
+                <span class="contact100-form-title-1">
+                    Contact Us
+                </span>
+
+                <span class="contact100-form-title-2">
+                    Feel free to drop us a line below!
+                </span>
+            </div>
+
+            <form class="contact100-form validate-form" method="post" action="/Home/AddAdminMessage">
+                <div class="wrap-input100 validate-input" data-validate="Name is required">
+                    <span class="label-input100">Full Name:</span>
+                    <input class="input100" type="text" name="Name" placeholder="Enter full name">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <span class="label-input100">Email:</span>
+                    <input class="input100" type="text" name="Email" placeholder="Enter email addess">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Phone is required">
+                    <span class="label-input100">Phone:</span>
+                    <input class="input100" type="text" name="Phone" placeholder="Enter phone number">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Message is required">
+                    <span class="label-input100">Message:</span>
+                    <textarea class="input100" name="Message" placeholder="Your Comment..."></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn" type="submit">
+                        <span>
+                            Submit
+                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/animsition/js/animsition.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/bootstrap/js/popper.js"></script>
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/select2/select2.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/daterangepicker/moment.js"></script>
+    <script src="~/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+    <script src="~/js/map-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+    </script>
+
+</body>
+</html>

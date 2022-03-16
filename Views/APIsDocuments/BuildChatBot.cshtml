@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="~/css/APIs_Dpcumentations.css" rel="stylesheet" />
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="sidebar">
+        <h2 style="color: #04aa6d;
+        margin-left: 12px;">
+            Chaty
+        </h2>
+        <a style="margin-top: 36px;" href="/APIsDocuments/Index">WhatApp Send Text</a>
+        <a href="/APIsDocuments/SendImage">WhatApp Send Image</a>
+        <a href="/APIsDocuments/SendLink">WhatApp Send Link</a>
+        <a href="/APIsDocuments/SendFile" >WhatApp Send File</a>
+        <a href="/APIsDocuments/BuildChatBot" class="active">Build Your ChatBot</a>
+        <button class="btn btn-primary" style="margin-left: 16px;
+        width: 100px;
+        margin-top: 25px;
+        background-color: #04aa6d;
+        cursor: pointer;" onclick="window.location.href ='/Home/Index'">
+            Back
+        </button>
+    </div>
+
+    <!-- Page content -->
+    <div class="content">
+        <div class="ContentContainer">
+            <p>1- Craete an Acount By SingUp <a href="/Home/SignUp">SingUp</a></p>
+            <p>2- Save Your Client Code and It will be Changed By Editting any Changes In your Infos</p>
+            <p>3- Build Your ChatBot</p>
+            <div class="ContentContainerChild">
+                <div class="First">
+                    <p>4- Add Your Messages</p>
+                    <p>4- List Your Messages By Input Your Code</p>
+                    <P>The Api ---> <a href="#">/ChatBot/GetQuestionAnswer</a></P>
+                    <p style="position: relative;
+                    left: 37%;
+                    text-decoration: underline;">Response</p>
+                    <p>- Success Response ---> Question Answer</p>
+                    <p>- Failed Response ---> "Failed"</p>
+                </div>
+                <div class="Second">
+                    <p style="position: relative;
+                    left: 38%;
+                    color: #fff;
+                    text-decoration: underline;">arguments</p>
+                    <p style="color: #fff;">1- (ClientCode) Type => string </p>
+                    <p style="color: #fff;">2- (Question) Type => string</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
